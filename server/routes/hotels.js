@@ -1,8 +1,8 @@
 import express from "express";
-import Hotel from "../models/Hotel.js";
 import { param, validationResult } from "express-validator";
 import Stripe from "stripe";
 import verifyToken from "../middleware/authMiddleware.js";
+import Hotel from "../models/Hotel.js";
 
 const stripe = new Stripe(process.env.STRIPE_API_KEY);
 
