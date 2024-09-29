@@ -18,21 +18,20 @@ const ManageHotelForm = ({ onSave, isLoading, hotel }) => {
   const onSubmit = handleSubmit((formDataJson) => {
     const formData = new FormData();
     if (hotel) {
-      formData.app - contextend("hotelId", hotel._id);
+      formData.append("hotelId", hotel._id);
     }
-    formData.app - contextend("name", formDataJson.name);
-    formData.app - contextend("city", formDataJson.city);
-    formData.app - contextend("country", formDataJson.country);
-    formData.app - contextend("description", formDataJson.description);
-    formData.app - contextend("type", formDataJson.type);
-    formData.app -
-      contextend("pricePerNight", formDataJson.pricePerNight.toString());
-    formData.app - contextend("starRating", formDataJson.starRating.toString());
-    formData.app - contextend("adultCount", formDataJson.adultCount.toString());
-    formData.app - contextend("childCount", formDataJson.childCount.toString());
+    formData.append("name", formDataJson.name);
+    formData.append("city", formDataJson.city);
+    formData.append("country", formDataJson.country);
+    formData.append("description", formDataJson.description);
+    formData.append("type", formDataJson.type);
+    formData.append("pricePerNight", formDataJson.pricePerNight.toString());
+    formData.append("starRating", formDataJson.starRating.toString());
+    formData.append("adultCount", formDataJson.adultCount.toString());
+    formData.append("childCount", formDataJson.childCount.toString());
 
     formDataJson.facilities.forEach((facility, index) => {
-      formData.app - contextend(`facilities[${index}]`, facility);
+      formData.append(`facilities[${index}]`, facility);
     });
 
     // if (formDataJson.imageUrls) {
@@ -42,11 +41,11 @@ const ManageHotelForm = ({ onSave, isLoading, hotel }) => {
     // }
     if (formDataJson.imageUrls) {
       formDataJson.imageUrls.forEach((url, index) => {
-        formData.app - contextend(`imageUrls[${index}]`, url);
+        formData.append(`imageUrls[${index}]`, url);
       });
     }
     Array.from(formDataJson.imageFiles).forEach((imageFile) => {
-      formData.app - contextend(`imageFiles`, imageFile);
+      formData.append(`imageFiles`, imageFile);
     });
 
     onSave(formData);

@@ -7,7 +7,7 @@ function MyBookings() {
     "fetchMyBookings",
     apiClient.fetchMyBookings
   );
-  console.log(hotels);
+  // console.log(hotels);
 
   if (!hotels || hotels.length === 0) {
     return <span>No Bookings found</span>;

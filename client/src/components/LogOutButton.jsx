@@ -29,7 +29,7 @@ function LogOutButton() {
       onClick={handleClick}
       className="text-blue-600 px-2 py-1 cursor-pointer font-bold rounded-sm bg-white hover:bg-gray-100 sm:py-2 w-full"
     >
-      Sign Out
+      Sign&nbsp;Out
     </button>
   );
 }
