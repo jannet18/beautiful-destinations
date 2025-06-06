@@ -31,7 +31,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 const __dirname = path.resolve();
-const staticPath = path.join(__dirname, "/client/dist");
+const staticPath = path.join(__dirname, "/client/public");
 app.use(express.static(staticPath));
 
 app.use("/api/auth", authRoutes);
@@ -40,8 +40,8 @@ app.use("/api/my-hotels", myHotelRoutes);
 app.use("/api/hotels", hotelRoutes);
 app.use("/api/my-bookings", bookingRoutes);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(staticPath, "client", "dist", "index.html"));
+app.get(/(.*)/, (req, res) => {
+  res.sendFile(path.join(staticPath, "client", "index.html"));
 });
 
 app.listen(5000, () => {

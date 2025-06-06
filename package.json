@@ -1,5 +1,5 @@
 {
-  "homepage": "https://jannet18.github.io/beautiful-destinations/",
+  "homepage": "https://jannet18.github.io/https://github.com/jannet18/beautiful-destinations-client/",
   "name": "beautiful-destinations",
   "version": "1.0.0",
   "type": "module",
@@ -8,10 +8,12 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "nodemon server/index.js",
-    "start": "node server/index.js",
     "build": "npm install && npm install --prefix client && npm run build --prefix client",
     "e2e": "cross-env DOTENV_CONFIG_PATH=.env.e2e nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:server": "node server/index.js",
+    "start:client": "npm --prefix client run dev",
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\""
   },
   "keywords": [],
   "author": "",
@@ -20,6 +22,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cloudinary": "^2.2.0",
+    "concurrently": "^9.1.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
